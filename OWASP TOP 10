@@ -30,3 +30,38 @@ Leverage Strong Session Management
 Regularly Audit and Test Access Control Rules
 Do Not Rely on HTTP Referer Headers
 Implement Logging and Monitoring
+
+CRYPTOGRAPHY FAILURES:
+
+Cryptography is important in today’s computing world. It is implemented in technologies like:
+
+    Protocols: HTTPS, FTPS, SFTP, SSH, SMTPS, etc. to ensure that all communication between two endpoints are encrypted.
+    Hashing (one way encryption): passwords, authentication, file integrity verification, etc.
+    Website certificates to verify authenticity.
+
+cryptography is used so widely and has many different implementations, there are several ways for vulnerabilities to occur. This could be through implementation errors, using weak encryption methods, not encrypting data at all, and much more. 
+Therefore, a Cryptographic Failure vulnerability is a broad vulnerability category that encompasses all types of attacks that are related to anything cryptography related.
+
+How to Find Cryptographic Failures
+
+    Identify Insecure Transport Layer (e.g., No HTTPS)
+    Detect Weak Encryption Algorithms
+    Locate Hard-coded or Exposed Keys and Passwords
+    Audit for Unencrypted Sensitive Data Storage
+    Check for Weak Password Storage
+
+Impact of Cryptographic Failures
+
+    Risk of Man-in-the-Middle (MitM) Attacks
+    Vulnerability to Cipher Exploits (e.g., Sweet32)
+    Unauthorized Access via Exposed Credentials
+    Data Exposure through Unencrypted Backups
+    Increased Password Cracking Risk
+
+Fixes for Cryptographic Failures
+
+    Enforce HTTPS
+    Upgrade to Strong Encryption Algorithms
+    Use Secure Storage for Credentials and Keys
+    Encrypt All Sensitive Data at Rest
+    Apply Strong Password Hashing and Storage
