@@ -1,1 +1,32 @@
+BROKEN ACCESS CONTROL:
 
+Definitions:
+Broken Access Control means that a user can access parts of an application that they’re not supposed to.In web applications, broken access control flaws allow users to see or change information that should be restricted. 
+For example, a regular user might be able to view other users data or perform actions meant only for administrators. 
+
+Impact:
+This can lead to privacy issues, data leaks, or users gaining access to higher-level controls they shouldn't have
+
+Common Use cases:
+Platform Misconfiguration
+When security settings aren’t properly configured, like leaving the ‘debug’ mode on in a live environment, it can lead to broken access control. This kind of setup error can make it easy for attackers to access areas they shouldn’t. Often, this happens due to oversight or weak security checks during setup.
+Insecure Direct Object References (IDOR)
+If an application allows users to directly access internal data through URLs or object IDs, they might change IDs to access other users’ data. For example, changing “example.com/account?id=123” to “example.com/account?id=456” could let someone see another person’s account. This is a form of broken access control.
+Mass Assignment
+When an application automatically fills in data based on user input, attackers may exploit this to modify properties they shouldn’t. For instance, they might change their role from ‘user’ to ‘admin’ or access restricted data. This happens if the app doesn’t carefully control what users can modify.
+URL Matching Discrepancies
+Sometimes, an app treats similar-looking URLs the same, like “/ADMIN/deleteUser” and “/admin/deleteUser,” but doesn’t apply access controls consistently. Attackers can use this to access pages they’re not supposed to.
+Referer Headers & Broken Access Control
+Some sites use the HTTP Referer Header to control access, checking if users came from the main admin page before allowing access to subpages like “/admin/deleteUser.” However, attackers can fake the Referer Header to bypass these checks and access restricted pages, leading to unauthorized access.
+
+Fix:
+Implement Role-Based Access Control (RBAC)
+Enforce Access Checks on Every Request
+Avoid Insecure Direct Object References (IDOR)
+Apply URL Path and Parameter Validation
+Disable Debug and Development Features in Production
+Use Secure Attribute Mapping and Control for Mass Assignment
+Leverage Strong Session Management
+Regularly Audit and Test Access Control Rules
+Do Not Rely on HTTP Referer Headers
+Implement Logging and Monitoring
